@@ -23,7 +23,7 @@ use yii\helpers\Html;
 
 <?= $form->field($kemaskini,'notelefon')->textInput(['placeholder'=>'Nombor Telefon','class'=>'form-control'])->label(false) ?>
 
-<?= Html::a('Kemaskini', ['kemaskini', 'idpelajar' => $this->encryptId($lihat->idpelajar)], ['class' => 'btn btn-success']) ?>
+<?= Html::a('Kemaskini', ['kemaskini', 'idpelajar' => ($kemaskini->idpelajar)], ['class' => 'btn btn-success']) ?>
 <?= Html::a('Kembali', 'index', ['class' => 'btn btn-danger']) ?>
 
 
