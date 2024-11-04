@@ -13,14 +13,7 @@ class IrfanController extends Controller {
     public $layout = 'main';
 
     
-    private $encryptionKey = '123'; 
-    protected function encryptId($id) {
-        return strtr(base64_encode(Yii::$app->security->encryptByKey($id, $this->encryptionKey)), '+/=', '-_,');
-    }
 
-    protected function decryptId($encryptedId) {
-        return Yii::$app->security->decryptByKey(base64_decode(strtr($encryptedId, '-_,', '+/=')), $this->encryptionKey);
-    }
 
     public function actionIndex() {
         $dataProvider = new ActiveDataProvider([
@@ -35,13 +28,13 @@ class IrfanController extends Controller {
 
     public function actionLihat($idpelajar) {
       
-        $idpelajar = $this->decryptId($idpelajar);
+        
         return $this->render('lihat', ['lihat' => $this->findModel($idpelajar)]);
     }
 
     public function actionKemaskini($idpelajar) {
         
-        $idpelajar = $this->decryptId($idpelajar);
+      
         $kemaskini = $this->findModel($idpelajar);
 
         if ($kemaskini->load(Yii::$app->request->post()) && $kemaskini->save()) {
@@ -53,7 +46,7 @@ class IrfanController extends Controller {
 
     public function actionPadam($idpelajar) {
        
-        $idpelajar = $this->decryptId($idpelajar);
+       
         $padam = $this->findModel($idpelajar);
 
         if ($padam) {

@@ -24,9 +24,6 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'NxDhii8EM-qnzX9_OFh6nmCHlfsuSbxJ',
         ],
-        'urlEncrypt' => [
-            'class' => 'app\components\UrlEncrypt',
-        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
